@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Inconsistencias de Datos: Epik vs. Félix Maduro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 380px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#004d99] mb-4">Riesgo Operativo y Financiero en la Integración Fintech</h1>
+            <p class="text-xl text-[#007acc]">Un Análisis de las Inconsistencias de Datos entre EPIK y Félix Maduro</p>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004d99] mb-4">Planteamiento del Problema</h2>
+                <p class="text-gray-700">
+                    Durante la integración del sistema crediticio de Félix Maduro a la plataforma de EPIK, se ha detectado una crítica falta de integridad en los datos de más de 32,000 clientes. Errores frecuentes como nombres mal digitados, documentos de identidad incorrectos y datos de contacto desactualizados impactan directamente procesos vitales como la facturación, las consultas crediticias y la validación de identidad. La ausencia de validaciones automatizadas y controles de autorización ha elevado el riesgo de corromper bases de datos productivas, afectando la operación diaria y la precisión de los reportes a centrales de riesgo como Experian/APC.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-center items-center text-center">
+                <span class="text-6xl font-bold text-[#007acc]">32,000+</span>
+                <p class="text-lg text-gray-600 mt-2">Clientes Activos Afectados</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-center items-center text-center">
+                <span class="text-6xl font-bold text-[#007acc]">0.6%</span>
+                <p class="text-lg text-gray-600 mt-2">Tasa Máxima de Actualización Diaria</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-center items-center text-center">
+                <span class="text-6xl font-bold text-[#007acc]">4</span>
+                <p class="text-lg text-gray-600 mt-2">Analistas para toda la Carga Operativa</p>
+            </div>
+            
+            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                 <h2 class="text-2xl font-bold text-center text-[#004d99] mb-4">Tipos de Inconsistencias de Datos Reportadas</h2>
+                <p class="text-gray-700 text-center mb-6">Los errores en los datos de los clientes no son uniformes. Ciertas categorías de inconsistencias son más frecuentes que otras, lo que sugiere áreas prioritarias para la validación y corrección. El siguiente gráfico ilustra la distribución de los tipos de errores más comunes detectados durante la migración.</p>
+                <div class="chart-container">
+                    <canvas id="inconsistenciasChart"></canvas>
+                </div>
+            </div>
+
+
+            <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-2xl font-bold text-center text-[#004d99] mb-4">Carga Operativa por Analista</h2>
+                    <p class="text-gray-700 text-center mb-6">Con un equipo de solo cuatro analistas de mesa de ayuda, la carga de trabajo para gestionar y corregir los datos de 32,000 clientes es insostenible. Cada analista es responsable de un promedio de 8,000 clientes, una cifra que magnifica el riesgo de error humano en las actualizaciones manuales.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="cargaAnalistasChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-2xl font-bold text-center text-[#004d99] mb-4">Proceso de Actualización Manual</h2>
+                    <p class="text-gray-700 text-center mb-6">El bajo porcentaje de actualizaciones diarias evidencia un cuello de botella crítico. La dependencia de procesos manuales no solo ralentiza la corrección de datos, sino que también introduce un riesgo significativo de errores que pueden comprometer la integridad de la base de datos de producción de forma irreversible.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="actualizacionesDiariasChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004d99] mb-4 text-center">Impacto Directo y Consecuencias</h2>
+                <div class="mt-6 flow-root">
+                    <div class="-my-4 divide-y divide-gray-200">
+                        <div class="flex flex-col md:flex-row items-center gap-4 py-4">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#66b3ff] text-white text-2xl font-bold">1</div>
+                            <div class="md:ml-4 text-center md:text-left">
+                                <h3 class="text-lg font-semibold text-[#004d99]">Errores en Facturación y Desembolsos</h3>
+                                <p class="text-gray-600">Las fallas en la validación de identidad provocan bloqueos en desembolsos y errores en los ciclos de facturación, afectando el flujo de caja.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center gap-4 py-4">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#3399ff] text-white text-2xl font-bold">2</div>
+                            <div class="md:ml-4 text-center md:text-left">
+                                <h3 class="text-lg font-semibold text-[#004d99]">Alteración del Historial Crediticio</h3>
+                                <p class="text-gray-600">Los reportes erróneos hacia Experian/APC dañan el historial crediticio de los clientes y exponen a EPIK a riesgos regulatorios.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center gap-4 py-4">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#007acc] text-white text-2xl font-bold">3</div>
+                            <div class="md:ml-4 text-center md:text-left">
+                                <h3 class="text-lg font-semibold text-[#004d99]">Sobrecarga del Equipo de Soporte</h3>
+                                <p class="text-gray-600">Un equipo reducido atiende una carga masiva de correcciones manuales además de sus responsabilidades con otros clientes corporativos.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center gap-4 py-4">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[#005fa3] text-white text-2xl font-bold">4</div>
+                            <div class="md:ml-4 text-center md:text-left">
+                                <h3 class="text-lg font-semibold text-[#004d99]">Pérdida de Confianza del Cliente</h3>
+                                <p class="text-gray-600">La persistencia de los problemas deteriora la relación comercial con Félix Maduro y amenaza la continuidad del negocio.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004d99] mb-4">Proyección y Siguientes Pasos</h2>
+                <p class="text-gray-700 mb-6">
+                    Para mitigar los riesgos y restaurar la integridad de los datos, es crucial implementar una estrategia de corrección y prevención. Esto implica no solo solucionar las inconsistencias actuales, sino también establecer un marco de trabajo que evite su recurrencia en el futuro.
+                </p>
+                <ul class="list-disc list-inside space-y-3 text-gray-700">
+                    <li><span class="font-semibold text-[#005fa3]">Implementar Automatizaciones:</span> Desarrollar scripts y procesos automáticos para la validación de datos durante la ingesta y actualización, reduciendo drásticamente el error humano.</li>
+                    <li><span class="font-semibold text-[#005fa3]">Establecer Controles de Autorización:</span> Crear un flujo de aprobación donde el cliente (Félix Maduro) valide y autorice los cambios críticos en los datos antes de que se apliquen en el entorno productivo.</li>
+                    <li><span class="font-semibold text-[#005fa3]">Mejorar la Trazabilidad:</span> Implementar un sistema de logging detallado que permita rastrear cada cambio en los datos, identificando quién lo hizo, cuándo y por qué, para mejorar la auditoría y la rendición de cuentas.</li>
+                    <li><span class="font-semibold text-[#005fa3]">Capacitación y Herramientas:</span> Dotar al equipo de mesa de ayuda de mejores herramientas y capacitación para una gestión de datos más eficiente y segura.</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer class="text-center mt-12 py-4 border-t">
+            <p class="text-gray-600">Infografía generada para el análisis de la integración EPIK - Félix Maduro, generada por Wernher Florez, Brayan Andres Torres Ramos
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        const tooltipTitleCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        const wrapLabel = (label) => {
+            const maxLength = 20;
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const colors = {
+            primary: '#007acc',
+            secondary: '#66b3ff',
+            accent: '#004d99',
+            light: '#cce6ff',
+            dark: '#003366'
+        };
+
+        const chartFont = {
+            family: 'Inter, sans-serif'
+        };
+        
+        const originalLabels = [
+            'Documentos de identidad erróneos',
+            'Nombres y apellidos mal digitados',
+            'Tarjetas duplicadas o no asociadas',
+            'Teléfonos y correos desactualizados'
+        ];
+        
+        new Chart(document.getElementById('inconsistenciasChart'), {
+            type: 'bar',
+            data: {
+                labels: originalLabels.map(wrapLabel),
+                datasets: [{
+                    label: 'Frecuencia de Inconsistencias',
+                    data: [35, 30, 20, 15],
+                    backgroundColor: [colors.primary, colors.secondary, colors.accent, colors.light],
+                    borderColor: [colors.dark, colors.dark, colors.dark, colors.dark],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Porcentaje de Errores (%)',
+                            font: chartFont
+                        }
+                    },
+                    y: {
+                        ticks: {
+                           font: chartFont
+                        }
+                    }
+                },
+                ...tooltipTitleCallback
+            }
+        });
+
+        new Chart(document.getElementById('cargaAnalistasChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Analista 1', 'Analista 2', 'Analista 3', 'Analista 4'],
+                datasets: [{
+                    label: 'Número de Clientes',
+                    data: [8000, 8000, 8000, 8000],
+                    backgroundColor: colors.primary
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10000,
+                        title: {
+                            display: true,
+                            text: 'Clientes por Analista',
+                            font: chartFont
+                        }
+                    }
+                },
+                ...tooltipTitleCallback
+            }
+        });
+
+        new Chart(document.getElementById('actualizacionesDiariasChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Clientes Actualizados Diariamente', 'Clientes Pendientes de Revisión'],
+                datasets: [{
+                    data: [0.6, 99.4],
+                    backgroundColor: [colors.accent, colors.light],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: chartFont
+                        }
+                    },
+                    ...tooltipTitleCallback.plugins
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
